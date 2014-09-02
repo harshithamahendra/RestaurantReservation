@@ -1,0 +1,241 @@
+/*css here*/
+.page-title{
+/* height: auto;
+ */text-align: center;
+color: rgb(168, 46, 70);
+background-color: rgb(223, 194, 189);
+margin-left:10px;
+margin-right: 10px;
+
+}
+.bottom{
+	display:none;
+}
+.image {
+text-align: center;
+margin: 10px 0px;
+/* border: 1px solid black; */
+height: 434px;
+width: 100%;
+position: relative;
+background-image: url('http://31.media.tumblr.com/5b25739fa3a9eec63f91741d690a356f/tumblr_muh2qlpgmt1sq0hngo1_1280.jpg');
+ background-color: #cccccc;
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center center;
+background-attachment: fixed;
+}
+
+/*pop up styling*/
+.popup label{
+  width:120px;
+  text-align:left;
+  display:inline-block;
+  color: black;
+}
+.popup {
+	position: fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 99999;
+	opacity:0;
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+	pointer-events: none;
+}
+#loginError{
+	color:red;
+	display:none;
+}
+#login_popup, #cnf_popup, #update_popup, #info_popup, #selectTable_popup, #rest_popup, #email_popup, #pass_popup{
+	display:none;
+}
+nav{
+  text-align:left;
+  width:49%;
+  display:inline;
+}
+.popup .left-nav{
+	float:left;
+	font-weight:bold;
+}
+.popup > div {
+	width: 400px;
+	position: relative;
+	margin: 10% auto;
+	padding: 5px 20px 13px 20px;
+	border-radius: 10px;
+	background: #fff;
+	background: -moz-linear-gradient(#fff, #999);
+	background: -webkit-linear-gradient(#fff, #999);
+	background: -o-linear-gradient(#fff, #999);
+}
+.popup span{
+	font-weight: bold;
+	font-size: 20px;
+}
+.close{
+	color: #373C41;
+	display:inline-block;
+	opacity:1;
+}
+.buttons {
+position: absolute;
+top: 70%;
+left: 40%;
+margin-left: -20%;
+/* margin-top: 8%; */
+/* margin-bottom: 11%; */
+text-align: center;
+width: 64%;
+display: inline-block;
+}
+
+.btn {
+background-color: rgb(168, 14, 14);
+display: inline-block;
+outline: none;
+padding: 10px 20px;
+border-radius: 16px;
+border-color: #6B5C5C;
+/* box-shadow: 0 1px 3px; */
+font-family: 'Open Sans', sans-serif;
+text-align: center;
+color: #FCF7F7;
+font-size: 20px;
+margin-top: 10px;
+}
+
+.admin{
+  margin-left:10px;
+}
+
+.user{
+  margin-right:10px;
+}
+.row{
+  margin:10px;
+} 
+section{
+  padding:10px;
+}
+
+*{
+	box-sizing:border-box;
+}
+ .container{
+	margin-left: auto;
+	margin-right: auto;
+	padding:15px;
+	border-radius:4px;
+	background-color:rgb(156, 14, 14);
+	width:93%;
+} 
+
+.form_title{
+	color:#D6D2D2;
+	margin-left:24px;
+}
+.form-control{
+	background-color: #D6D2D2;
+}
+label{
+	color:#D6D2D2;
+}
+.reserve{
+	text-align:center;
+}
+.submit{
+	color:#D6D2D2;
+}
+.change-rsv{
+	margin-left:50px;
+}
+
+.admin-info{
+	background-color:white;
+	border: 0.2rem solid rgb(156, 14, 14);
+	padding:0px;
+}
+.tab-text{
+	color:rgb(156, 14, 14);
+}
+.nav-tabs{
+	background-color:#D6D2D2;
+	border-radius:4px;
+	font-weight: bold;
+}
+.content{
+	border-radius:4px;
+	border: 0.2rem solid #D6D2D2; 
+}
+.tab-content{
+	padding:32px;
+}
+
+.tab-content>.content{
+	display:none;
+}
+.tab-content>.active{
+	display:block;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td, .table-striped>tbody>tr:nth-child(odd)>th{
+	background-color: #D6D2D2
+}
+
+#table-info{
+	background-image: linear-gradient(rgb(214, 89, 89) 0px, rgb(151, 49, 49) 100%);
+	border-color: rgb(163, 125, 125);
+	background-color: rgb(156, 14, 14)
+}
+
+#table-info:hover{
+	background-color: rgb(156, 14, 14);
+}
+ul{
+  list-style:none;
+}
+.profile-content{
+	padding:10px;
+}	
+.list{
+  display:inline-block;
+  height:100%;
+  width:50%;
+}
+.left{
+  margin-left:-20px;
+}
+.right{
+  float:right;
+  margin-right:10px;
+}
+#auto-assign{
+	background-color: rgb(168, 14, 14);
+	background-image: none;
+	font-size:18px;
+	text-shadow: none;
+}
+.heading{
+  font-size:18px;
+  font: bold;
+}
+hr{
+	border-color: #DAC6C6;
+}
+
+/*Responsive UI*/
+@media (max-width: 768px){
+	.col-xs-6 {
+	width: 100%;
+	}
+	.tab-content {
+	padding: 0px;
+	}
+}
