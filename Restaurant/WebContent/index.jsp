@@ -210,64 +210,72 @@
 		</div>
 	</section>
 	<section id="formSection">
-		<div class="form container">
-			<h2 class="form_title">Please enter the following details:</h2>
-			<div class="row 1">
-				<div class="col-xs-6">
-					<label for="reserveFirstName">First Name</label> <input type="text"
-						ng-model="person.firstName" ng-disabled="able"
-						class="form-control" id="reserveFirstName"
-						placeholder="Enter Your First Name">
-				</div>
-				<div class="col-xs-6">
-					<label for="reserveLastName">Last Name</label> <input type="text"
-						ng-model="person.lastName" ng-disabled="able" class="form-control"
-						id="reserveLastName" placeholder="Enter Your Last Name">
-				</div>
-			</div>
-			<div class="row 2">
-				<div class="col-xs-6">
-					<label for="reserveEmail">Email</label> <input type="email"
-						ng-model="person.email" ng-disabled="able" class="form-control"
-						id="reserveEmail" placeholder="Enter email">
-				</div>
-				<div class="col-xs-6">
-					<label for="reservePhone">Phone Number</label> <input type="tel"
-						ng-model="person.phone" ng-disabled="able" class="form-control"
-						id="reservePhone" placeholder="Enter Your Phone Number">
-				</div>
-			</div>
-			<div class="row 3">
-				<div class="col-xs-6">
-					<label for="reserveDate">Date</label> <input type="date"
-						ng-model="person.date" class="form-control" id="reserveDate"
-						placeholder="MM/DD/YYYY">
-				</div>
-				<div class="col-xs-6">
-					<label for="reserveTime">Time</label> <input type="time"
-						ng-model="person.time" class="form-control" id="reserveTime"
-						placeholder="HH:MM">
-				</div>
-			</div>
-			<div class="row 4">
-				<div class="col-xs-6">
-					<label for="reserveSize">Party Size</label> <input type="number"
-						ng-model="person.size" class="form-control" id="reserveSize"
-						placeholder="# Guests">
-				</div>
-				<div class="col-xs-6">
-					<label for="reserveEvent">Event (optional)</label> <input
-						type="text" ng-model="person.event" class="form-control"
-						id="reserveEvent" placeholder="ex: Birthday,Graduation...etc">
-				</div>
+		<form class="form container" name="userForm" ng-submit= "formSubmit(userForm.$valid)" novalidate>
+            <h2 class="form_title">Please enter the following details:</h2>
+            <div class="row 1">
+                <div class="col-xs-6">
+                    <label for="reserveFirstName">First Name</label> <input type="text"
+                        name="firstName" ng-model="person.firstName" ng-disabled="able"
+                        class="form-control" id="reserveFirstName"
+                        placeholder="Enter Your First Name" required>
+                        <p ng-show="userForm.firstName.$invalid && userForm.firstName.$dirty" class="help-block">First Name is required.</p>
+                </div>
+                <div class="col-xs-6">
+                    <label for="reserveLastName">Last Name</label> <input type="text"
+                        name="lastName" ng-model="person.lastName" ng-disabled="able" class="form-control"
+                        id="reserveLastName" placeholder="Enter Your Last Name" required>
+                        <p ng-show="userForm.lastName.$invalid && userForm.lastName.$dirty" class="help-block">Last Name is required.</p>
+                </div>
+            </div>
+            <div class="row 2">
+                <div class="col-xs-6">
+                    <label for="reserveEmail">Email</label> <input type="email"
+                        name="email" ng-model="person.email" ng-disabled="able" class="form-control"
+                        id="reserveEmail" placeholder="Enter email" required>
+                        <p ng-show="userForm.email.$invalid && userForm.email.$dirty" class="help-block">Email is required.</p>
+                </div>
+                <div class="col-xs-6">
+                    <label for="reservePhone">Phone Number</label> <input type="tel"
+                        name="phone" ng-model="person.phone" ng-disabled="able" class="form-control"
+                        id="reservePhone" placeholder="Enter Your Phone Number" required ng-pattern="/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/">
+                        <p ng-show="userForm.phone.$error.required && userForm.phone.$dirty" class="help-block">Phone number is required.</p>
+                        <p ng-show="userForm.phone.$error.pattern && userForm.phone.$dirty" class="help-block">Invalid pattern</p>
+                </div>
+            </div>
+            <div class="row 3">
+                <div class="col-xs-6">
+                    <label for="reserveDate">Date</label> <input type="date"
+                        name="date" ng-model="person.date" class="form-control" id="reserveDate"
+                        placeholder="MM/DD/YYYY" required>
+                        <p ng-show="userForm.date.$invalid && userForm.date.$dirty" class="help-block">Date is required.</p>
+                </div>
+                <div class="col-xs-6">
+                    <label for="reserveTime">Time</label> <input type="time"
+                        name="time" ng-model="person.time" class="form-control" id="reserveTime"
+                        placeholder="HH:MM" required>
+                        <p ng-show="userForm.time.$invalid && userForm.time.$dirty" class="help-block">Time is required.</p>
+                </div>
+            </div>
+            <div class="row 4">
+                <div class="col-xs-6">
+                    <label for="reserveSize">Party Size</label> <input type="number"
+                        name="size" ng-model="person.size" class="form-control" id="reserveSize"
+                        placeholder="# Guests" required>
+                        <p ng-show="userForm.size.$invalid && userForm.size.$dirty" class="help-block">Party size is required.</p>
+                </div>
+                <div class="col-xs-6">
+                    <label for="reserveEvent">Event (optional)</label> <input
+                        type="text" ng-model="person.event" class="form-control"
+                        id="reserveEvent" placeholder="ex: Birthday,Graduation...etc">
+                </div>
 
-			</div>
-			<div class="reserve">
-				<button typ="submit" ng-click="formSubmit()" class="btn submit">Reserve</button>
-				<a class="change-rsv" ng-click="popup('1','auto','cnf','block')">Change
-					Existing Reservation</a>
-			</div>
-		</div>
+            </div>
+            <div class="reserve">
+                <button typ="submit" class="btn submit" ng-disabled="userForm.$invalid">Reserve</button>
+                <a class="change-rsv" ng-click="popup('1','auto','cnf','block')">Change
+                    Existing Reservation</a>
+            </div>
+        </form>
 	</section>
 	<section ng-style="adminSection" class="bottom">
 		<div class="admin-info container">
@@ -435,3 +443,4 @@
 </body>
 
 </html>
+

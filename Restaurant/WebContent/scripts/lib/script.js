@@ -154,7 +154,8 @@ myApp.controller('MainController', ['$scope', '$location', '$anchorScroll', '$ht
 	
 	//console.log($scope.person);
 	
-	$scope.formSubmit = function() {
+	$scope.formSubmit = function(valid) {
+		if(valid){
 		$scope.person.t_id = 0;
 		if ($rootScope.autoAssign) {
 			$http({
@@ -178,6 +179,7 @@ myApp.controller('MainController', ['$scope', '$location', '$anchorScroll', '$ht
 		else{
 			$scope.addPerson();
 		}
+	}
 		
 	}
 
